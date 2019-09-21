@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/stylesheet.css';
+
 
 const SignUp = props => {
     return (
