@@ -1,7 +1,7 @@
 import React from 'react';
-import '../css/stylesheet.css';
 
-const Create = props => {
+
+const CreateUser = props => {
     return (
         <div className='container'>
               <div class="card card-register mx-auto mt-5">
@@ -49,4 +49,4 @@ const Create = props => {
     )
 }
 
-export default Create;
+export default CreateUser;

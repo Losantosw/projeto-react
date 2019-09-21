@@ -1,11 +1,10 @@
 import React from 'react';
-import '../css/stylesheet.css';
 
-const Edit = props => {
+const CreateBook = props => {
     return (
         <div className='container'>
               <div class="card card-register mx-auto mt-5">
-                  <div class="card-header">Editar Usuário</div>
+                  <div class="card-header">Registrar Livro</div>
                   <div class="card-body">
                     <form>
                       <div class="form-group">
@@ -49,4 +48,4 @@ const Edit = props => {
     )
 }
 
-export default Edit;
+export default CreateBook;
