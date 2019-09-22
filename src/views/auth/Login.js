@@ -1,6 +1,5 @@
 import React from 'react';
 
-import '../../vendor/css/stylesheet.css';
 
 const Login = props => {
     return (
