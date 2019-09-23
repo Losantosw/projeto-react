@@ -22,7 +22,7 @@ const Login = props => {
                             </div>
                           </div>
                 
-                          <a className='btn btn-primary btn-block' href='#'>Login</a>    
+                          <a className='btn btn-primary btn-block' href='/dashboard'>Login</a>    
                           <a className='btn btn-success btn-block' href='/sign-up'>Registrar</a>
                          
                       </form>
