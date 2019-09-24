@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-
-const ForgotPass = props => {
-    return (
+class ForgotPass extends Component {
+    render(){
+      return (
         <div classNameName='container'>
               <div className="card card-login mx-auto mt-5">
                   <div className="card-header">Recuperar Senha</div>
@@ -19,18 +20,19 @@ const ForgotPass = props => {
                           <label for="inputEmail">Digite o email</label>
                         </div>
                       </div>
-                      <a className="btn btn-primary btn-block" href="login.html">Recuperar Senha</a>
+                      <Link className="btn btn-primary btn-block" to="login.html">Recuperar Senha</Link>
                     </form>
 
                     <br/>
 
                     <div className="text-center">
-                      <a classNameName='d-block small' href='/'>Já tem uma conta? Faça o login</a>
+                      <Link classNameName='d-block small' to='/'>Já tem uma conta? Faça o login</Link>
                     </div>
                   </div>
               </div>
         </div>
-    )
+      )
+    }
 }
 
 export default ForgotPass;

@@ -1,51 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-const CreateBook = props => {
-    return (
-        <div className='container'>
-              <div class="card card-register mx-auto mt-5">
-                  <div class="card-header">Registrar Livro</div>
-                  <div class="card-body">
+
+class CreateBook extends Component {
+    render(){
+      return (
+            <div className="card mb-3">
+                  <div className="card-header">Registrar Livro</div>
+                  <div className="card-body">
                     <form>
-                      <div class="form-group">
-                        <div class="form-label-group">
-                          <input type="text" id="inputName" class="form-control" placeholder="Nome" required="required"/>
+                      <div className="form-group">
+                        <div className="form-label-group">
+                          <input type="text" id="inputName" className="form-control" placeholder="Nome" required="required"/>
                           <label for="inputName">Nome</label>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <div class="form-label-group">
-                          <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="required"/>
+                      <div className="form-group">
+                        <div className="form-label-group">
+                          <input type="email" id="inputEmail" className="form-control" placeholder="Email" required="required"/>
                           <label for="inputEmail">Email</label>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <div class="form-row">
-                          <div class="col-md-6">
-                            <div class="form-label-group">
-                              <input type="password" id="inputPassword" class="form-control" placeholder="Senha"
+                      <div className="form-group">
+                        <div className="form-row">
+                          <div className="col-md-6">
+                            <div className="form-label-group">
+                              <input type="password" id="inputPassword" className="form-control" placeholder="Senha"
                                 required="required"/>
                               <label for="inputPassword">Senha</label>
                             </div>
                           </div>
-                          <div class="col-md-6">
-                            <div class="form-label-group">
-                              <input type="password" id="confirmPassword" class="form-control" placeholder="Confirmar senha"
+                          <div className="col-md-6">
+                            <div className="form-label-group">
+                              <input type="password" id="confirmPassword" className="form-control" placeholder="Confirmar senha"
                                 required="required"/>
                               <label for="confirmPassword">Confirmar Senha</label>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <a class="btn btn-primary btn-block" href="login.html">Registrar</a>
+                      <Link className="btn btn-primary btn-block" to="login.html">Registrar</Link>
                     </form>
-                    <div class="text-center">
-                      <a class="d-block small mt-3" href="/">Voltar para o Login</a>
+                    <div className="text-center">
+                      <Link className="d-block small mt-3" to="/dashboard">Voltar para o Painel</Link>
                     </div>
                   </div>
-              </div>
-        </div>
-    )
+            </div>
+      )
+    }
 }
 
 export default CreateBook;

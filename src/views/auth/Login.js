@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-
-const Login = props => {
-    return (
+class Login extends Component {
+    render(){
+      return (
           <div className='container'>
               <div className='card card-login mx-auto mt-5'>
                   <div className='card-header'>Autenticação</div>
@@ -22,18 +23,19 @@ const Login = props => {
                             </div>
                           </div>
                 
-                          <a className='btn btn-primary btn-block' href='/dashboard'>Login</a>    
-                          <a className='btn btn-success btn-block' href='/sign-up'>Registrar</a>
+                          <Link className='btn btn-primary btn-block' to='/dashboard'>Login</Link>    
+                          <Link className='btn btn-success btn-block' to='/sign-up'>Registrar</Link>
                          
                       </form>
                       <br/>
                       <div className='text-center'>
-                          <a className='d-block small' href='/forgot-pass'>Recuperar Senha</a>
+                          <Link className='d-block small' to='/forgot-pass'>Recuperar Senha</Link>
                       </div>
                   </div>
               </div>
           </div>
-    )
+      )
+    }
 }
 
 export default Login;
