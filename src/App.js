@@ -31,7 +31,7 @@ class App extends Component {
      
                     {/* user */}
                     <Route exact path="/user/create" component={ CreateUser } />
-                    <Route exact path="/user/edit" component={ EditUser } />
+                    <Route exact path="/user/edit/:id" component={ EditUser } />
                     <Route exact path="/user/list" component={ ListUser } /> 
 
                     {/* book */}

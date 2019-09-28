@@ -69,8 +69,6 @@ class Dashboard extends Component {
                             <span>Usuário</span>
                           </Link>
                           <div className="dropdown-menu" aria-labelledby="pagesDropdown">       
-                            <Link className="dropdown-item" to="/user/create">Cadastrar</Link>
-                            <Link className="dropdown-item" to="/user/edit">Editar</Link>
                             <Link className="dropdown-item" to="/user/list">Listar</Link>       
                           </div>
                         </li>
@@ -80,8 +78,6 @@ class Dashboard extends Component {
                             <span>Livro</span>
                           </Link>
                           <div className="dropdown-menu" aria-labelledby="pagesDropdown">   
-                            <Link className="dropdown-item" to="/book/create">Cadastrar</Link>
-                            <Link className="dropdown-item" to="/book/edit">Editar</Link>
                             <Link className="dropdown-item" to="/book/list">Listar</Link>    
                           </div>
                         </li>
