@@ -37,7 +37,7 @@ class CreateUser extends Component {
       this.props.history.push("/dashboard")
     })
     .catch((error) => {
-      console.error("Error adding document: ", error);
+      console.error("Erro ao adicionar: ", error);
     });
   }
 

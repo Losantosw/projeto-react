@@ -8,24 +8,22 @@ class EditUser extends Component {
       super(props);
       this.state = {
         key: '',
-        nome: '',
-        email: '',
-        senha: ''
+        title: '',
+        description: '',
+        author: ''
       };
     }
 
     componentDidMount() {
-      const ref = firebase.firestore().collection('usuarios');
-      //ref.doc(this.props.match.params.id);
-      //const ref = firebase.firestore().collection('boards').doc(this.props.match.params.id);
+      const ref = firebase.firestore().collection('boards').doc(this.props.match.params.id);
       ref.get().then((doc) => {
         if (doc.exists) {
-          const usuario = doc.data();
+          const board = doc.data();
           this.setState({
             key: doc.id,
-            nome: usuario.nome,
-            email: usuario.email,
-            senha: usuario.senha
+            title: board.title,
+            description: board.description,
+            author: board.author
           });
         } else {
           console.log("No such document!");
@@ -42,21 +40,21 @@ class EditUser extends Component {
     onSubmit = (e) => {
       e.preventDefault();
 
-      const { nome, email, senha } = this.state;
+      const { title, description, author } = this.state;
 
-      const updateRef = firebase.firestore().collection('usuarios').doc(this.state.key);
+      const updateRef = firebase.firestore().collection('boards').doc(this.state.key);
       updateRef.set({
-          nome,
-          email,
-          senha
+        title,
+        description,
+        author
       }).then((docRef) => {
-          this.setState({
-            key: '',
-            nome: '',
-            email: '',
-            senha: ''
-          });
-          this.props.history.push("/user/list/"+this.props.match.params.id)
+        this.setState({
+          key: '',
+          title: '',
+          description: '',
+          author: ''
+        });
+        this.props.history.push("/show/"+this.props.match.params.id)
       })
       .catch((error) => {
         console.error("Error adding document: ", error);
@@ -68,11 +66,11 @@ class EditUser extends Component {
               <div className="card mb-3">
                   <div className="card-header">Editar Usuário</div>
                   <div className="card-body">
-                    <form>
+                    <form onSubmit={this.onSubmit}>
                       <div className="form-group">
                         <div className="form-label-group">
                           <input type="text" id="inputName" className="form-control" placeholder="Nome"
-                             required="required" value={this.state.nome} onChange={this.onChange}/>
+                             required="required" name="nome" value={this.state.name} onChange={this.onChange}/>
                           <label for="inputName">Nome</label>
                         </div>
                       </div>
@@ -101,7 +99,9 @@ class EditUser extends Component {
                           </div>
                         </div>
                       </div>
-                      <a className="btn btn-primary btn-block" href="login.html">Registrar</a>
+
+                      <button type="submit" className="btn btn-primary btn-block" href="login.html">Atualizar</button>
+                    
                     </form>
                     <div className="text-center">
                       <Link className="d-block small mt-3" to="/dashboard">Voltar para o Painel</Link>

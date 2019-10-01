@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link, BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import firebase from '../Firebase';
 
 import '../vendor/css/stylesheet.css';
 import '../vendor/fontawesome-free/css/all.min.css';
 
-import  CreateUser  from '../views/user/CreateUser';
-import  EditUser  from '../views/user/EditUser';
-import  ListUser  from '../views/user/ListUser';
 
-import  CreateBook  from '../views/book/CreateBook';
-import  EditBook  from '../views/book/EditBook';
-import  ListBook  from '../views/book/ListBook';
+import CreateBook from '../views/book/CreateBook';
+import ListBook from '../views/book/ListBook';
+
 
 
 class Dashboard extends Component {
+
+    constructor(props) {
+        super(props);
+        this.logout = this.logout.bind(this);
+    }
+
+
+    logout() {
+        firebase.auth().signOut();
+    }
+
     render(){
         return (
             <div id="page-top">
@@ -30,12 +39,12 @@ class Dashboard extends Component {
                     {/* <!-- Navbar Search --> */}
                     <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                       <div className="input-group">
-                        <input type="text" className="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2"/>
+                        {/* <input type="text" className="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2"/>
                         <div className="input-group-append">
                           <button className="btn btn-primary" type="button">
                             <i className="fas fa-search"></i>
                           </button>
-                        </div>
+                        </div> */}
                       </div>
                     </form>
                 
@@ -65,15 +74,6 @@ class Dashboard extends Component {
                         </li>
                         <li className="nav-item dropdown active">
                           <Link className="nav-link dropdown-toggle" to="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i className="fas fa-fw fa-user"></i>
-                            <span>Usuário</span>
-                          </Link>
-                          <div className="dropdown-menu" aria-labelledby="pagesDropdown">       
-                            <Link className="dropdown-item" to="/user/list">Listar</Link>       
-                          </div>
-                        </li>
-                        <li className="nav-item dropdown active">
-                          <Link className="nav-link dropdown-toggle" to="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i className="fas fa-fw fa-book"></i>
                             <span>Livro</span>
                           </Link>
@@ -85,16 +85,10 @@ class Dashboard extends Component {
               
                   <div id="content-wrapper">
                     <div className="container-fluid"> 
-                       <BrowserRouter>
-                      
-                                <CreateUser/>
-                                <EditUser/>
-                                <ListUser/>
-                                <CreateBook/>
-                                <EditBook/>
-                                <ListBook/>
-                   
-                       </BrowserRouter>  
+                       
+                          <CreateBook/>
+                          <ListBook/>
+                       
                     </div>
                     {/* <!-- /.container-fluid --> */}
               
@@ -110,7 +104,7 @@ class Dashboard extends Component {
                 </a>     
 
                 <Helmet>
-                    <script src="%PUBLIC_URL%/../vendor/js/code.min.js"></script>
+                   <script src="%PUBLIC_URL%/../vendor/js/code.js"></script>
                 </Helmet>
           </div>
 
