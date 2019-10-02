@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-loader": "8.0.4",
     "firebase": "^5.5.4",
     "helmet": "^3.21.1",
     "react": "^16.5.2",
